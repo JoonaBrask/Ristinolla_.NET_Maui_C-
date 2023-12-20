@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="final_work.MainPage"
+             Title="Ristinolla -peli">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <!-- Aloita nappi pelin aloittamiseksi -->
+            <Button Text="Aloita Peli"
+                    Clicked="ToRulesPage_Clicked"/>
+
+            <!-- Poistu nappi sovelluksesta poistumiseen -->
+            <Button Text="Poistu"
+                    Clicked="Exit_Clicked"/>
+
+            <!-- Tulostaulukko -->
+            <Label Text="Pelaaja ja Tulostaulu" FontSize="Small" HorizontalOptions="Center" Margin="0,40,0,5"/>
+
+            <!-- ListView näyttää pelaajan tiedot luettelonäkymässä otsikolla -->
+            <Border StrokeThickness="2" Margin="100,0,100,0">
+                <ListView x:Name="scoreboardListView" ItemsSource="{Binding Players}" Margin="50">
+
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" Text="Etunimi" HorizontalOptions="StartAndExpand" FontSize="14"/>
+                            <Label Grid.Column="1" Text="Sukunimi" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="2" Text="Syntymävuosi" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="3" Text="Voitot" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="4" Text="Tappiot" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="5" Text="Tasapelit" HorizontalOptions="StartAndExpand" />
+                            <Label Grid.Column="6" Text="Pelattu aika" HorizontalOptions="StartAndExpand" />
+
+                            <BoxView Grid.ColumnSpan="7" HeightRequest="1" BackgroundColor="{StaticResource tictactoeGrey}" VerticalOptions="End" />
+                        </Grid>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding FirstName}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding LastName}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding BirthYear}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding Wins}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding Losses}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding Draws}" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding TotalTimePlayed, StringFormat='{}{0:hh\\:mm\\:ss}'}" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
+
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+
+</ContentPage>

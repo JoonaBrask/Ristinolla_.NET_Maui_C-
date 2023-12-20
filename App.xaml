@@ -1,0 +1,40 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:final_work"
+             x:Class="final_work.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+
+             <!--muokatut värit--> 
+            <Color x:Key="tictactoeBlue">#0026be</Color>
+            <Color x:Key="tictactoeGrey">#1c1c1b</Color>
+
+            <!-- muokattu väri contentpagelle -->
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+
+            <!-- tyylittelyt buttoneille -->
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource tictactoeBlue}"/>
+                <Setter Property="BorderColor" Value="{StaticResource tictactoeGrey}"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="CornerRadius" Value="1"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+
+            <!-- tyylittely gridille ja gamepagelle -->
+            <Style x:Key="GridButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+            </Style>
+
+            <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+            <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

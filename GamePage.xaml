@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="final_work.GamePage"
+             Title="PELAA!">
+    <ScrollView Orientation="Both">
+
+        <VerticalStackLayout>
+
+            <!-- Kuva, joka näyttää voittaja- tai tasatilanteen ilmoituksen, näkyy sen jälkeen, kun pelaaja voittaa pelin voiton tai pelin tasatilanteessa -->
+            <Image x:Name="WinnerImage" IsVisible="false" WidthRequest="300" Margin="0,20,0,20"/>
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="100" Margin="0,20,0,0">
+
+                <!-- Pelaajan 1 suuntavilkun ja pelaajan 1 kuvan reuna-->
+                <Border x:Name="Player1Frame" StrokeThickness="2">
+                    <Image x:Name="Player1TurnImage" Source="player1_logo.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                </Border>
+
+
+                <!-- Pelaajan 2:n suuntavilkun ja pelaaja2-kuvan tai tietokoneen kuvan reuna -->
+                <Border x:Name="Player2Frame" StrokeThickness="2">
+                    <Image x:Name="Player2TurnImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center"/>
+                </Border>
+            </HorizontalStackLayout>
+
+            <!-- Peliajastimen näyttämiseen käytettävä labeli -->
+            <Label x:Name="TimerLabel" Text="00:00:00" FontSize="Small"  HorizontalOptions="Center" Margin="10"/>
+
+            <!-- ristinolla-ruudukon asettelu -->
+            <Grid HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="300"
+                HeightRequest="300"
+                BackgroundColor="Transparent">
+
+                <Grid x:Name="ticTacToeGrid" RowSpacing="5" ColumnSpacing="5">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ristinolla-ruudukon painikkeet (ImageButtons) -->
+                    <!-- Klikattu tapahtuma käsitellään GridClicked-menetelmällä C#-koodissa -->
+                    <!-- Alkulähteeksi asetettu "empty.png" -->
+                    <ImageButton Grid.Row="0" Grid.Column="0" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="0" Grid.Column="1" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="0" Grid.Column="2" Clicked="GridClicked" Source="empty.png"/>
+
+                    <ImageButton Grid.Row="1" Grid.Column="0" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="1" Grid.Column="1" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="1" Grid.Column="2" Clicked="GridClicked" Source="empty.png"/>
+
+                    <ImageButton Grid.Row="2" Grid.Column="0" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="2" Grid.Column="1" Clicked="GridClicked" Source="empty.png"/>
+                    <ImageButton Grid.Row="2" Grid.Column="2" Clicked="GridClicked" Source="empty.png"/>
+
+                </Grid>
+            </Grid>
+
+            <!-- Painike pelin käynnistämiseen, mikä mahdollistaa ruudukon ja ajastimen -->
+            <Button x:Name="TimerAndGameBoard" Text="Aloita Peli" Margin="0,20,0,0" Clicked="TimerAndGameBoardStart_Clicked"/>
+
+            <!-- Painike siirtyäksesi takaisin pääsivulle -->
+            <Button x:Name="BackToMainPage" Text="Takaisin etusivulle" Margin="0,20,0,0" Clicked="BackToMainpage_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+
+</ContentPage>

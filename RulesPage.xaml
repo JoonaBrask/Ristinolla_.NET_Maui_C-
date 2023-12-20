@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="final_work.RulesPage">
+    <ScrollView>
+        <StackLayout>
+
+            <Label Margin="20,20,20,20" Text="Ristinolla ohjeet" FontSize="Large"/>
+
+            <!-- Runko pelin säännöt osiolle-->
+            <Border >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Text="Peliä pelataan ruudukossa, joka on 3 x 3 ruutua." FontSize="Large" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0"/>
+                    <Label Text="Kaksi pelaajaa (AI tai oikea pelaaja) laittavat vuorollaan merkit tyhjiin ruutuihin joko X:llä tai O:lla." FontSize="Large" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="1"/>
+                    <Label Text="Ensimmäinen pelaaja, joka saa 3 pistettä peräkkäin (ylös/alas, sivuttain tai ristiin), on voittaja." FontSize="Large" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="2"/>
+                    <Label Text="Jos kaikki 9 ruutua ovat täynnä eikä kenelläkään pelaajalla ole 3 merkkiä peräkkäin, peli on tasapeli." FontSize="Large" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="3"/>
+                </Grid>
+            </Border>
+
+            <!-- Nappi seuraavalle sivulle syöttämään pelaajatietoja -->
+            <Button Text="Seuraava"
+                    Clicked="StartChoosePlayer_Clicked"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
